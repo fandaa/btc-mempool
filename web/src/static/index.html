@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">	
+<head>		
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mempool.parallelo3301.org</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://parallelo3301.org/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://parallelo3301.org/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://parallelo3301.org/favicon-16x16.png">
+	<link rel="stylesheet" type="text/css" href="https://parallelo3301.org/style.css">
+	<link rel="stylesheet" href="/assets/uplot.min.css">
+
+	<style>
+		#mempool-container > * { margin: 0 auto; }
+		.u-series > * { font-size: 0.8em; padding: 0; }
+		.u-legend th > * { display: block; }
+
+		.u-legend { column-count: 3; width: 460px; display: block; }
+		.u-legend .u-series { display: block; width: 150px; }
+		.u-legend .u-label { width: 80px; }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<a href="https://parallelo3301.org"><img height="160" src="https://parallelo3301.org/avatar.png" /></a>
+			<h1 style="font-size: 55px; padding-bottom: 20px">Bitcoin mempool</h1>
+			
+			<div id="mempool-container"></div>
+		</div>
+		<!-- <div style="margin-top: 40px">
+			<video width="400" class="phone-video" autoplay loop mutes playsinline>
+    			<source src="https://parallelo3301.org/real_world.mp4" type="video/mp4">
+			</video>
+		</div> -->
+	</div>
+	
+	<script type="text/javascript" src="/assets/uplot.iife.min.js"></script>
+	<script type="text/javascript" src="/assets/mempool.js?v=0.1.0"></script>
+	<script type="text/javascript" src="/generated/data.js"></script>
+</body>
+</html>
+

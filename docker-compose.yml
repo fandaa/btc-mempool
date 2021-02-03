@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  btc-node:
+    build: ./bitcoin-node
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+    #ports:
+    #  - 25501:25501
+    volumes:
+      - btc-node-data:/root/.bitcoin
+    env_file:
+      - btc.env
+
+  btc-database:
+    image: postgres:alpine
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - btc-db:/var/lib/postgresql/data
+    env_file:
+      - db.env
+
+  btc-data-extractor:
+    build: ./extractor
+    restart: unless-stopped
+    volumes:
+      - ./extractor/src:/app
+    env_file:
+      - db.env
+      - btc.env
+
+  btc-web:
+    build: ./web
+    restart: unless-stopped
+    volumes:
+      - ./web/src:/app/src
+      - btc-web-data:/app/dist
+    env_file:
+      - db.env
+
+  btc-proxy:
+    build: ./proxy
+    restart: unless-stopped
+    ports:
+      - 8050:80
+    volumes:
+      - btc-web-data:/usr/share/nginx/html/web:ro
+
+volumes:
+  btc-node-data:
+  btc-db:
+  btc-web-data:
