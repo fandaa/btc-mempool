@@ -2,7 +2,7 @@
 
 ![preview](./preview.png)
 
-Experimental project.
+Experimental project. Deployed at [https://mempool.parallelo3301.org/](https://mempool.parallelo3301.org/).
 
 ---
 
